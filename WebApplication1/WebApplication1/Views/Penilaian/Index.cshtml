@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApplication1.Models.Penilaian>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nilai)
+            </th>
+            <th>
+                Approvel
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Batch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nilai)
+            </td>
+             <td>
+                 
+                    @if (@item.App == 1)
+                    {
+                        <span class="text-success">Approve</span>
+                    }else{
+
+                        <span class="text-danger">Not Approve</span>
+                    }
+               
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-warning">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                    @if (@item.App == 1)
+                    {
+                       
+                    }
+                    else
+                    {
+                        <a asp-action="Approve" asp-route-id="@item.ID" class="btn btn-success">Approve</a>
+                       
+                    }
+                    
+            </td>
+          
+        </tr>
+}
+    </tbody>
+</table>
+

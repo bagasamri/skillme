@@ -1,0 +1,50 @@
+﻿@model WebApplication1.Models.Penilaian
+
+@{
+    ViewData["Title"] = "Approve";
+}
+
+<h1>Approve</h1>
+
+<h3>Are you sure you want to Approve this?</h3>
+<div>
+    <h4>Penilaian</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Batch)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Batch)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NIK)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NIK)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nilai)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nilai)
+        </dd>
+    </dl>
+
+    <form asp-action="Approve">
+        <input type="hidden" asp-for="ID" />
+         <input type="hidden" asp-for="Batch" value="1" />
+        <input type="hidden" asp-for="NIK" value="@Model.NIK" />
+        <input type="hidden" asp-for="Nama" value="@Model.Nama" />
+        <input type="hidden" asp-for="Nilai" value="@Model.Nilai" />
+        <input type="hidden" asp-for="App" value="1" />
+        <input type="submit" value="Update" class="btn btn-primary" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

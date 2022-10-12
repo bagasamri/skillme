@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Penilaian>
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<form asp-controller="Penilaian" asp-action="Upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <hr />
+    <button type="submit">Upload File</button>
+
+</form>
